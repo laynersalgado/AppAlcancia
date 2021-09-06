@@ -1,0 +1,78 @@
+<mat-card *ngIf="cardInfoAlcancia" class="cardInfoAlcancia">
+    <mat-card-title class="title">
+        <h2>Informacion Alcancia</h2>
+    </mat-card-title>
+    
+    <app-resumen [cantidadMonedas]="cantidadMonedasInfo" 
+    [cantidadDinero]="cantidadDineroInfo"></app-resumen>
+
+    <mat-form-field appearance="fill" style="width: 100% !important;">
+        <mat-label>Cantidad de Monedas por denominación</mat-label>
+        <mat-select [formControl]="formInfoAlcancia" multiple (selectionChange)="somethingChanged()">
+            <mat-option *ngFor="let alcancia of alcanciaInfoList" [value]="alcancia">{{alcancia}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="example-button-row">
+        <div *ngIf="MuestraMonedas50">
+            <label>Cantidad Monedas $50: </label>
+            <label> {{cantidad50}}</label>
+        </div>
+
+        <div *ngIf="MuestraMonedas100">
+            <label>Cantidad Monedas $100: </label>
+            <label> {{cantidad100}}</label>
+        </div>
+
+        <div *ngIf="MuestraMonedas200">
+            <label>Cantidad Monedas $200: </label>
+            <label> {{cantidad200}}</label>
+        </div>
+
+        <div *ngIf="MuestraMonedas500">
+            <label>Cantidad Monedas $500: </label>
+            <label> {{cantidad500}}</label>
+        </div>
+
+        <div *ngIf="MuestraMonedas1000">
+            <label>Cantidad Monedas $1000: </label>
+            <label> {{cantidad1000}}</label>
+        </div>
+    </div>
+
+
+    <mat-form-field appearance="fill" style="width: 100% !important;">
+        <mat-label>Cantidad de Dinero por denominación</mat-label>
+        <mat-select [formControl]="formInfoAlcancia" multiple (selectionChange)="somethingChangedDinero()">
+            <mat-option *ngFor="let infoAlcancia of alcanciaInfoList" [value]="infoAlcancia">{{infoAlcancia}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="example-button-row">
+        <div *ngIf="MuestraDinero50">
+            <label>Cantidad dinero en monedas $50: </label>
+            <label> {{cantidad50 * 50 | currency}}</label>
+        </div>
+
+        <div *ngIf="MuestraDinero100">
+            <label>Cantidad dinero en monedas $100: </label>
+            <label> {{cantidad100 * 100 | currency}}</label>
+        </div>
+
+        <div *ngIf="MuestraDinero200">
+            <label>Cantidad dinero en monedas $200: </label>
+            <label> {{cantidad200 * 200 | currency}}</label>
+        </div>
+
+        <div *ngIf="MuestraDinero500">
+            <label>Cantidad dinero en monedas $500: </label>
+            <label> {{cantidad500 * 500 | currency}}</label>
+        </div>
+
+        <div *ngIf="MuestraDinero1000">
+            <label>Cantidad dinero en monedas $1000: </label>
+            <label> {{cantidad1000 * 1000 | currency}}</label>
+        </div>
+    </div>
+
+
+</mat-card>
